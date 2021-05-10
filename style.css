@@ -1,0 +1,334 @@
+s
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Seg,oe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #000000;
+  background: -webkit-linear-gradient(to top right , #434343, #000000);
+  background: linear-gradient(to top right, #434343, #000000);
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 60px;
+  color: #bc2e1e;
+  margin: 40px 0;
+  text-shadow: 8px 7px 0 #5dabcd, 7px 8px 0 #378ab4, 7px 6px 1px #5dabcd,
+    6px 7px 1px #378ab4, 6px 5px 2px #5dabcd, 5px 6px 2px #378ab4,
+    5px 4px 2px #5dabcd, 4px 5px 3px #378ab4, 4px 3px 3px #5dabcd,
+    3px 4px 2px #378ab4, 3px 2px 2px #5dabcd, 2px 3px 2px #378ab4,
+    2px 1px 1px #5dabcd, 1px 2px 1px #378ab4, 1px 0 0 #5dabcd, 0 1px 0 #378ab4;
+}
+
+
+
+.container {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.character {
+  position: relative;
+  max-width: 30%;
+  color: #fff;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  background: #232323;
+}
+
+.character:hover {
+  box-shadow: 0 0 10px 3px #a0a0a049;
+  transform: scale(1.01);
+}
+
+.character-img {
+  width: 100%;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 30px;
+  /* filter: hue-rotate(90deg); */
+}
+
+.character:not(.character:nth-child(1)):not(.character:nth-child(2)):not(.character:nth-child(3)) {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1600px) {
+
+  .character-img {
+    height: 200px;
+  }
+
+ 
+}
+@media screen and (max-width: 1100px) {
+  .character {
+    max-width: 45%;
+  }
+
+  .character-img {
+    height: 200px;
+  }
+
+  .character:not(.character:nth-child(1)):not(.character:nth-child(2)) {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .character {
+    max-width: 100%;
+  }
+
+  .character + .character {
+    margin-top: 20px;
+  }
+
+  .character-img {
+    height: 280px;
+  }
+}
+
+.character > h2 {
+  margin: 20px;
+  text-align: center;
+  font-size: 32px;
+  color: #f1f1f1;
+  opacity:.5;
+  transition: text-shadow .2s ease-in-out, opacity .2s ease-in-out;
+}
+.character:hover > h2 {
+  text-shadow: 0 0 75px #49ff18, 0 0 55px #49ff18, 0 0 40px #49ff18,
+    0 0 30px #49ff18, 0 0 20px #49ff18, 0 0 15px #fff, 0 0 10px #fff,
+    0 0 5px #fff;
+  opacity : 1;
+}
+.character h3 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 500;
+  color: #bc2e1e;
+}
+
+.character > p {
+  position: relative;
+  text-align: center;
+  font-size: 20px;
+  width:80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+.character p > span {
+  position: absolute;
+  height:100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.character > p:before, .character > p:after, .character p > span:before, .character p > span:after {
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 5px;
+  height:5px;
+  border-top: 2px solid #bc2e1e;
+  border-left: 2px solid #bc2e1e;
+}
+
+.character p > span:before {
+  bottom: 0;
+  transform: rotate(-90deg) translateX(-50%);
+  left: 0%;
+}
+.character p > span:after {
+  right: 0%;
+  top: 0;
+  transform: rotate(90deg) translateX(-50%);
+}
+.character p:before {
+  left: 0%;
+  top: 0;
+  transform:  translateY(-50%);
+}
+.character p:after {
+  right: 0%;
+  bottom: 0;
+  transform: rotate(180deg) translateY(-50%);
+}
+
+.character .delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.character .update {
+  position: absolute;
+  top: 10px;
+  right: 45px;
+}
+
+.character .delete:hover,
+.character .update:hover {
+  transform: scale(1.3);
+  color: #bc2e1e;
+}
+
+.character > button {
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.character.active-pop-up:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(51, 51, 51, 0.76);
+  z-index: 5;
+}
+
+/* ? form */
+/* -------------------------------- */
+form {
+  box-shadow: 0 0 13px #0000006c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  border-radius: 10px;
+}
+
+form h2 {
+  font-size: 42px;
+  margin: 40px 10px;
+  color: #bc2e1e;
+  text-align: center;
+  text-shadow: 8px 7px 0 #5dabcd, 7px 8px 0 #378ab4, 7px 6px 1px #5dabcd,
+    6px 7px 1px #378ab4, 6px 5px 2px #5dabcd, 5px 6px 2px #378ab4,
+    5px 4px 2px #5dabcd, 4px 5px 3px #378ab4, 4px 3px 3px #5dabcd,
+    3px 4px 2px #378ab4, 3px 2px 2px #5dabcd, 2px 3px 2px #378ab4,
+    2px 1px 1px #5dabcd, 1px 2px 1px #378ab4, 1px 0 0 #5dabcd, 0 1px 0 #378ab4;
+}
+
+.form-group {
+  display: flex;
+  width: 80%;
+}
+
+.form-group + .form-group {
+  margin-top: 15px;
+} 
+
+label {
+  display: none;
+}
+input,
+textarea {
+  border: none;
+  width: 100%;
+  border-radius: 0.2rem;
+  padding: 10px;
+}
+form button {
+  border: none;
+  margin: 40px;
+  padding: 10px 35px;
+  text-align: center;
+  cursor: pointer;
+  background: #bc2e1e;
+  font-weight: 900;
+  font-size: 18px;
+  color: #fff;
+  transition: transform .2s ease-in-out;
+  width: 50%;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+form button:hover {
+  transform: scale(1.02);
+}
+
+/* pop up */
+
+.pop-up{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding: 20px;
+  background: #000000;
+  background: -webkit-linear-gradient(to top right , #434343, #000000);
+  background: linear-gradient(to top right, #434343, #000000);
+  box-shadow: 0 0 10px 3px #a0a0a049;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  z-index:10;
+}
+
+.pop-up h2{
+  color: #bc2e1e;
+  margin: 20px 0 0 0;
+}
+
+.pop-up p{
+  text-align: center;
+  margin: 20px auto;
+}
+
+.pop-up button{
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.pop-up button:hover{
+  transform: scale(1.02);
+}
+
+.pop-up button + button {
+  margin-left: 10px;
+}
+
+.confirm{
+  background: green;
+}
+.unconfirm{
+  background: red;
+}
+
+
+

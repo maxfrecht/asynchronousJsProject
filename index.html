@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app/main.mjs" defer></script>
+    <title>Characters</title>
+  </head>
+  <body>
+    <h1>CHARACTERS LIST</h1>
+    <div class="container">
+      <div class="characters"></div>
+      <form action="#" id="form">
+        <h2>Créer un nouveau personnage</h2>
+        <div class="form-group">
+          <label for="">Pseudo</label>
+          <input placeholder="pseudo" type="text" name="pseudo" id="pseudo" />
+        </div>
+        <div class="form-group">
+          <label for="classe">Classe</label>
+          <input placeholder="classe" type="text" name="classe" id="classe" />
+        </div>
+        <div class="form-group">
+          <label for="avatar">url avatar</label>
+          <input
+            placeholder="url image avatar"
+            type="text"
+            name="avatar"
+            id="avatar"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            placeholder="description du personnage"
+            name="description"
+            id="description"
+          ></textarea>
+        </div>
+        <button type="submit">Valider</button>
+        <a href=""></a>
+      </form>
+    </div>
+  </body>
+</html>
